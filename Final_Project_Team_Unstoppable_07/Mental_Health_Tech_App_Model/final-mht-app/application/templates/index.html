@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health in Tech Industry - Predicting Mental Disorders (DSR) </title>
+ </head>
+<body>
+        <h2>Welcome to Disorders Predictor App</h2>
+        <h3>Enter your Health and Work info</h3>
+        <form name="healthform" id="healthform" action = "{{ url_for('disorderPredict') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td><p>Tech Company Status</p>
+                        <select name = "tech_comp_flag">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </td>
+                    <td><p>Medical Health Coverage </p>
+                        <select name = "mh_coverage_flag">
+                            <option value="0">Yes</option>
+                            <option value="1">No</option>
+                            <option value="2">Not Eligible</option>
+                        </select>
+                    </td>
+                    <td><p>Does the Company Offers any resources about Mental Health Concerns</p>
+                        <select name = "mh_resources_provided">
+                            <option value="0">Not Sure</option>
+                            <option value="1">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+                    </td></tr>
+                    <tr>
+                    <td><p>Medical Leave Access</p>
+                        <select name = "mh_medical_leave">
+                            <option value="0">Not Sure</option>
+                            <option value="1">Neither Easy Nor Difficult</option>
+                            <option value="2">Somewhat Difficult</option>
+                            <option value="3">Somewhat Easy</option>
+                            <option value="4">Very Difficult</option>
+                            <option value="5">Very Easy</option>
+                        </select>
+                    </td>
+                    <td><p>Gender</p>
+                        <select name = "sex">
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                            <option value="2">Other</option>
+                        </select>
+                    </td>
+                    <td><p>Work Position</p>
+                        <select name = "tech_flag">
+                            <option value="1">Front End/BackEnd</option>
+                            <option value="1">Dev/DevOps</option>
+                            <option value="0">Leadership/Management</option>
+                            <option value="0">Others</option>
+                        </select>
+                    </td>
+                </tr> 
+                    <tr>
+                    <td><p>Had any Mental Disorders in the Past?</p>
+                        <select name = "mh_disorder_past">
+                            <option value="0">May be</option>
+                            <option value="1">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+                    </td>
+                    
+                    <td><p>Have you ever sought treatment for a mental health issue from a mental health professional?
+                    </p>
+                        <select name = "mh_sought_proffes_treatm">
+                            <option value="0">No</option>
+                            <option value="2">Yes</option>
+                        </select>
+                    </td>
+                    <td><p>If you have a mental health issue, do you feel that it interferes with your work when being treated effectively?
+                    </p>
+                        <select name = "mh_eff_treat_impact_on_work">
+                            <option value="0">Never</option>
+                            <option value="1">Not Applicable</option>
+                            <option value="2">Often</option>
+                            <option value="3">Rarely</option>
+                            <option value="4">Sometimes</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" id="forminput" name="forminput"  >            
+            <p><input type="submit" value="Predict the disorders"></p>
+              
+             <h3> Chances of Mental Health Disorder: {{ data }}  </h3>
+             
+             
+        </form>
+
+</body>
+</html>
